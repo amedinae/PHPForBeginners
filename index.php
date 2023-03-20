@@ -5,9 +5,9 @@ require 'functions.php';
 require 'Database.php';
 
 // connect to the database, and execute a query.
+$config = require 'config.php';
 
-$dsn = "mysql:host=localhost;port=3306;dbname=demoApp;user=root;charset=utf8mb4";
-$db = new Database($dsn);
+$db = new Database($config['database']);
 $posts = $db->execute("select * from posts where id>4")->fetchAll(PDO::FETCH_ASSOC);;
 
 foreach ($posts as $post) {
