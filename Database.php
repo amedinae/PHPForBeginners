@@ -12,11 +12,11 @@ class Database
         ]);
     }
 
-    public function execute($query)
+    public function execute($query, $params)
     {
 
         $statement = $this->connection->prepare($query);
-        $statement->execute();
+        $statement->execute($params);
 
         return $statement;
     }
